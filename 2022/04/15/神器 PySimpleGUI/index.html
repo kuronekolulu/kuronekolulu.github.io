@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>神器 PySimpleGUI | Mark个人博客</title>
+  <meta name="author" content="Mark" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="GUI" />
+  
+  <meta name="description" content="PySimpleGUI 什么时候有用呢？显然，是你需要 GUI 的时候。仅需不超过 5 分钟，就可以让你创建并尝试 GUI。最便捷的 GUI 创建方式就是从 PySimpleGUI 经典实例中拷贝一份代码&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;》直接看下面的例程就可以了 使用手册（官方手册）&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神器 PySimpleGUI">
+<meta property="og:url" content="http://example.com/2022/04/15/%E7%A5%9E%E5%99%A8%20PySimpleGUI/index.html">
+<meta property="og:site_name" content="Mark个人博客">
+<meta property="og:description" content="PySimpleGUI 什么时候有用呢？显然，是你需要 GUI 的时候。仅需不超过 5 分钟，就可以让你创建并尝试 GUI。最便捷的 GUI 创建方式就是从 PySimpleGUI 经典实例中拷贝一份代码&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;》直接看下面的例程就可以了 使用手册（官方手册）&amp;#">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/null">
+<meta property="article:published_time" content="2022-04-15T07:59:17.000Z">
+<meta property="article:modified_time" content="2022-04-15T08:06:11.980Z">
+<meta property="article:author" content="Mark">
+<meta property="article:tag" content="GUI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://kuronekolulu.github.io/">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/Candinya/Kratos-Rebirth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Mark个人博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Mark个人博客</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">神器 PySimpleGUI</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2022-04-15</li>
+                <li><i class="fa fa-user"></i> 作者 Mark</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~9.41K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1650009971980"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            <hr />
+            <p>PySimpleGUI 什么时候有用呢？显然，是你需要 GUI 的时候。仅需不超过 5 分钟，就可以让你创建并尝试 GUI。最便捷的 GUI 创建方式就是从 PySimpleGUI 经典实例中拷贝一份代码&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;》直接看下面的例程就可以了</p>
+<p>使用手册（官方手册）&#x3D;&#x3D;》<a target="_blank" rel="noopener" href="https://pysimplegui.readthedocs.io/en/latest/cookbook/">https://pysimplegui.readthedocs.io/en/latest/cookbook/</a><br>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pysimplegui</span><br><span class="line">or</span><br><span class="line">pip3 install pysimplegui</span><br></pre></td></tr></table></figure>
+
+<p>————————————————</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#！usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*-coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time      :2019/10/15 17:14</span></span><br><span class="line"><span class="comment"># @Author    :xxx</span></span><br><span class="line"><span class="comment"># @File      :1-体验.py</span></span><br><span class="line"><span class="comment"># description:</span></span><br><span class="line"><span class="comment"># @SoftWare  :PyCharm Community Edition</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> PySimpleGUI <span class="keyword">as</span> sg</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_1</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	简单测试PySimpleGUI</span></span><br><span class="line"><span class="string">	:return:</span></span><br><span class="line"><span class="string">	&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="comment"># All the stuff inside your window.=================1</span></span><br><span class="line">	layout = [</span><br><span class="line">		[sg.Text(<span class="string">&#x27;some text on row1&#x27;</span>)],</span><br><span class="line">		[sg.Text(<span class="string">&#x27;enter something on row2&#x27;</span>), sg.InputText()],</span><br><span class="line">		[sg.Button(<span class="string">&#x27;ok&#x27;</span>), sg.Button(<span class="string">&#x27;cancel&#x27;</span>)],</span><br><span class="line"></span><br><span class="line">	]</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># Create the Window=================================2</span></span><br><span class="line">	window = sg.Window(<span class="string">&#x27;window titel&#x27;</span>, layout=layout)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># Event Loop to process &quot;events&quot; and get the &quot;values&quot; of the inputs</span></span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		event, values = window.read() <span class="comment">#====================3</span></span><br><span class="line">		<span class="comment"># if user closes window or clicks cancel</span></span><br><span class="line">		<span class="keyword">if</span> event <span class="keyword">in</span> (<span class="literal">None</span>, <span class="string">&#x27;cancel&#x27;</span>):</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&#x27;you entered:&#x27;</span>, values[<span class="number">0</span>])</span><br><span class="line">	</span><br><span class="line">	window.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_2</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	测试 PySimpleGUI 排版</span></span><br><span class="line"><span class="string">	:return:</span></span><br><span class="line"><span class="string">	&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">	layout = [</span><br><span class="line">		[sg.Text(<span class="string">&#x27;Please enter your Name, Address, Phone&#x27;</span>)],</span><br><span class="line">		[sg.Text(<span class="string">&#x27;Name&#x27;</span>, size=(<span class="number">15</span>, <span class="number">1</span>)), sg.InputText(<span class="string">&#x27;name&#x27;</span>)],</span><br><span class="line">		[sg.Text(<span class="string">&#x27;Address&#x27;</span>, size=(<span class="number">15</span>, <span class="number">1</span>)), sg.InputText(<span class="string">&#x27;address&#x27;</span>)],</span><br><span class="line">		[sg.Text(<span class="string">&#x27;Phone&#x27;</span>, size=(<span class="number">15</span>, <span class="number">1</span>)), sg.InputText(<span class="string">&#x27;phone&#x27;</span>)],</span><br><span class="line">		[sg.Submit(), sg.Cancel()]</span><br><span class="line">	]</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># Create the Window</span></span><br><span class="line">	window = sg.Window(<span class="string">&#x27;window titel&#x27;</span>, layout=layout)</span><br><span class="line">	</span><br><span class="line">	button, values = window.read()</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">print</span>(button, values[<span class="number">0</span>], values[<span class="number">1</span>], values[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_3</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	基本的GUI 组件</span></span><br><span class="line"><span class="string">	:return:</span></span><br><span class="line"><span class="string">	&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="comment"># 外观</span></span><br><span class="line">	sg.ChangeLookAndFeel(<span class="string">&#x27;GreenTan&#x27;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># All the stuff inside your window.=================1</span></span><br><span class="line">	column1 = [</span><br><span class="line">		[sg.Text(<span class="string">&#x27;column 1&#x27;</span>, background_color=<span class="string">&#x27;#d3dfda&#x27;</span>, justification=<span class="string">&#x27;center&#x27;</span>, size=(<span class="number">10</span>,<span class="number">1</span>))],</span><br><span class="line">		[sg.Spin(values=(<span class="string">&#x27;Spin Box 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>), initial_value=<span class="string">&#x27;Spin Box 1&#x27;</span>)],</span><br><span class="line">		[sg.Spin(values=(<span class="string">&#x27;Spin Box 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>), initial_value=<span class="string">&#x27;Spin Box 2&#x27;</span>)],</span><br><span class="line">		[sg.Spin(values=(<span class="string">&#x27;Spin Box 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>), initial_value=<span class="string">&#x27;Spin Box 3&#x27;</span>)],</span><br><span class="line">	</span><br><span class="line">	]</span><br><span class="line">	</span><br><span class="line">	layout = [</span><br><span class="line">		<span class="comment"># 文本</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;All graphic widgets in one form!&#x27;</span>, size=(<span class="number">30</span>, <span class="number">1</span>), font=(<span class="string">&quot;Helvetica&quot;</span>, <span class="number">25</span>))],</span><br><span class="line">		[sg.Text(<span class="string">&#x27;Here is some text.... and a place to enter text&#x27;</span>)],</span><br><span class="line">		<span class="comment"># 默认输入框</span></span><br><span class="line">		[sg.InputText(<span class="string">&#x27;This is my text&#x27;</span>)],</span><br><span class="line">		<span class="comment"># 检查框</span></span><br><span class="line">		[sg.Checkbox(<span class="string">&#x27;My first checkbox!&#x27;</span>), sg.Checkbox(<span class="string">&#x27;My second checkbox!&#x27;</span>, default=<span class="literal">True</span>)],</span><br><span class="line">		<span class="comment"># 圆角框</span></span><br><span class="line">		[sg.Radio(<span class="string">&#x27;My first Radio!     &#x27;</span>, <span class="string">&quot;RADIO1&quot;</span>, default=<span class="literal">True</span>), sg.Radio(<span class="string">&#x27;My second Radio!&#x27;</span>, <span class="string">&quot;RADIO1&quot;</span>)],</span><br><span class="line">		<span class="comment"># 多行文本</span></span><br><span class="line">		[sg.Multiline(default_text=<span class="string">&#x27;This is the default Text should you decide not to type anything&#x27;</span>, size=(<span class="number">35</span>, <span class="number">3</span>)),</span><br><span class="line">		 sg.Multiline(default_text=<span class="string">&#x27;A second multi-line&#x27;</span>, size=(<span class="number">35</span>, <span class="number">3</span>))],</span><br><span class="line">		<span class="comment"># 下拉框</span></span><br><span class="line">		[sg.InputCombo((<span class="string">&#x27;Combobox 1&#x27;</span>, <span class="string">&#x27;Combobox 2&#x27;</span>), size=(<span class="number">20</span>, <span class="number">3</span>))],</span><br><span class="line">		<span class="comment"># 水平 拖动条</span></span><br><span class="line">		[sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;h&#x27;</span>, size=(<span class="number">34</span>, <span class="number">20</span>), default_value=<span class="number">85</span>)],</span><br><span class="line">		<span class="comment"># 垂直 拖动条</span></span><br><span class="line">		[sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;v&#x27;</span>, size=(<span class="number">5</span>, <span class="number">20</span>), default_value=<span class="number">25</span>),</span><br><span class="line">		 sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;v&#x27;</span>, size=(<span class="number">5</span>, <span class="number">20</span>), default_value=<span class="number">75</span>),</span><br><span class="line">		 sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;v&#x27;</span>, size=(<span class="number">5</span>, <span class="number">20</span>), default_value=<span class="number">10</span>)],</span><br><span class="line">		<span class="comment"># 列表框</span></span><br><span class="line">		[sg.Listbox(values=(<span class="string">&#x27;Listbox 1&#x27;</span>, <span class="string">&#x27;Listbox 2&#x27;</span>, <span class="string">&#x27;Listbox 3&#x27;</span>), size=(<span class="number">30</span>, <span class="number">3</span>))],</span><br><span class="line">		<span class="comment"># 整列</span></span><br><span class="line">		[sg.Column(column1, background_color=<span class="string">&#x27;#FF3E96&#x27;</span>)],</span><br><span class="line">		<span class="comment"># 横线</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;_&#x27;</span>  * <span class="number">80</span>)],</span><br><span class="line">		<span class="comment"># 文本</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;Choose A Folder&#x27;</span>, size=(<span class="number">35</span>, <span class="number">1</span>))],</span><br><span class="line">		<span class="comment"># 文件浏览器</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;Your Folder&#x27;</span>, size=(<span class="number">15</span>, <span class="number">1</span>), auto_size_text=<span class="literal">False</span>, justification=<span class="string">&#x27;right&#x27;</span>),</span><br><span class="line">		 sg.InputText(<span class="string">&#x27;Default Folder&#x27;</span>), sg.FolderBrowse()],</span><br><span class="line">		[sg.Submit(), sg.Cancel()],</span><br><span class="line">		[sg.Button(<span class="string">&#x27;ok&#x27;</span>), sg.Button(<span class="string">&#x27;cancel&#x27;</span>)],</span><br><span class="line">	</span><br><span class="line">	]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment"># Create the Window=================================2</span></span><br><span class="line">	window = sg.Window(<span class="string">&#x27;window titel&#x27;</span>, layout=layout, default_element_size=(<span class="number">40</span>,<span class="number">1</span>))</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># Event Loop to process &quot;events&quot; and get the &quot;values&quot; of the inputs</span></span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		event, values = window.read()  <span class="comment"># ====================3</span></span><br><span class="line">		<span class="comment"># if user closes window or clicks cancel</span></span><br><span class="line">		<span class="keyword">if</span> event <span class="keyword">in</span> (<span class="literal">None</span>, <span class="string">&#x27;cancel&#x27;</span>):</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="comment"># 打印</span></span><br><span class="line">		<span class="comment"># event---按钮事件， values 是字典，所有可输入的值</span></span><br><span class="line">		<span class="built_in">print</span>(event, values)</span><br><span class="line">	</span><br><span class="line">		<span class="comment"># 弹窗提示</span></span><br><span class="line">		<span class="comment"># sg.Popup(event, values)</span></span><br><span class="line">	</span><br><span class="line">	window.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_4</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	基本的GUI 组件</span></span><br><span class="line"><span class="string">	:return:</span></span><br><span class="line"><span class="string">	&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="comment"># 外观</span></span><br><span class="line">	<span class="built_in">print</span>(sg.ListOfLookAndFeelValues())</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	[&#x27;SystemDefault&#x27;, &#x27;Reddit&#x27;, &#x27;Topanga&#x27;, &#x27;GreenTan&#x27;, &#x27;Dark&#x27;, &#x27;LightGreen&#x27;, &#x27;Dark2&#x27;, &#x27;Black&#x27;, &#x27;Tan&#x27;, &#x27;TanBlue&#x27;, </span></span><br><span class="line"><span class="string">	&#x27;DarkTanBlue&#x27;, &#x27;DarkAmber&#x27;, &#x27;DarkBlue&#x27;, &#x27;Reds&#x27;, &#x27;Green&#x27;, &#x27;BluePurple&#x27;, &#x27;Purple&#x27;, &#x27;BlueMono&#x27;, &#x27;GreenMono&#x27;, </span></span><br><span class="line"><span class="string">	&#x27;BrownBlue&#x27;, &#x27;BrightColors&#x27;, &#x27;NeutralBlue&#x27;, &#x27;Kayak&#x27;, &#x27;SandyBeach&#x27;, &#x27;TealMono&#x27;]</span></span><br><span class="line"><span class="string">	&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># 改变外观</span></span><br><span class="line">	sg.ChangeLookAndFeel(<span class="string">&#x27;GreenTan&#x27;</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 组合列1</span></span><br><span class="line">	column1 = [</span><br><span class="line">		[sg.Text(<span class="string">&#x27;column 1&#x27;</span>, background_color=<span class="string">&#x27;#d3dfda&#x27;</span>, justification=<span class="string">&#x27;center&#x27;</span>, size=(<span class="number">10</span>,<span class="number">1</span>))],</span><br><span class="line">		[sg.Spin(values=(<span class="string">&#x27;Spin Box 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>), initial_value=<span class="string">&#x27;Spin Box 1&#x27;</span>)],</span><br><span class="line">		[sg.Spin(values=(<span class="string">&#x27;Spin Box 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>), initial_value=<span class="string">&#x27;Spin Box 2&#x27;</span>)],</span><br><span class="line">		[sg.Spin(values=(<span class="string">&#x27;Spin Box 1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>), initial_value=<span class="string">&#x27;Spin Box 3&#x27;</span>)],</span><br><span class="line">	</span><br><span class="line">	]</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 布局设计</span></span><br><span class="line">	layout = [</span><br><span class="line">		<span class="comment"># 文本标签</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;All graphic widgets in one form!&#x27;</span>, size=(<span class="number">30</span>, <span class="number">1</span>), font=(<span class="string">&quot;Helvetica&quot;</span>, <span class="number">25</span>))],</span><br><span class="line">		[sg.Text(<span class="string">&#x27;Here is some text.... and a place to enter text&#x27;</span>)],</span><br><span class="line">		<span class="comment"># 默认输入框</span></span><br><span class="line">		[sg.InputText(<span class="string">&#x27;This is my text&#x27;</span>)],</span><br><span class="line">		<span class="comment"># 检查框</span></span><br><span class="line">		[sg.Checkbox(<span class="string">&#x27;My first checkbox!&#x27;</span>), sg.Checkbox(<span class="string">&#x27;My second checkbox!&#x27;</span>, default=<span class="literal">True</span>)],</span><br><span class="line">		<span class="comment"># 圆角框</span></span><br><span class="line">		[sg.Radio(<span class="string">&#x27;My first Radio!     &#x27;</span>, <span class="string">&quot;RADIO1&quot;</span>, default=<span class="literal">True</span>), sg.Radio(<span class="string">&#x27;My second Radio!&#x27;</span>, <span class="string">&quot;RADIO1&quot;</span>)],</span><br><span class="line">		<span class="comment"># 多行文本</span></span><br><span class="line">		[sg.Multiline(default_text=<span class="string">&#x27;This is the default Text should you decide not to type anything&#x27;</span>, size=(<span class="number">35</span>, <span class="number">3</span>)),</span><br><span class="line">		 sg.Multiline(default_text=<span class="string">&#x27;A second multi-line&#x27;</span>, size=(<span class="number">35</span>, <span class="number">3</span>))],</span><br><span class="line">		<span class="comment"># 下拉框</span></span><br><span class="line">		[sg.InputCombo((<span class="string">&#x27;Combobox 1&#x27;</span>, <span class="string">&#x27;Combobox 2&#x27;</span>), size=(<span class="number">20</span>, <span class="number">3</span>))],</span><br><span class="line">		<span class="comment"># 水平 拖动条</span></span><br><span class="line">		[sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;h&#x27;</span>, size=(<span class="number">34</span>, <span class="number">20</span>), default_value=<span class="number">85</span>)],</span><br><span class="line">		<span class="comment"># 垂直 拖动条</span></span><br><span class="line">		[sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;v&#x27;</span>, size=(<span class="number">5</span>, <span class="number">20</span>), default_value=<span class="number">25</span>),</span><br><span class="line">		 sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;v&#x27;</span>, size=(<span class="number">5</span>, <span class="number">20</span>), default_value=<span class="number">75</span>),</span><br><span class="line">		 sg.Slider(<span class="built_in">range</span>=(<span class="number">1</span>, <span class="number">100</span>), orientation=<span class="string">&#x27;v&#x27;</span>, size=(<span class="number">5</span>, <span class="number">20</span>), default_value=<span class="number">10</span>)],</span><br><span class="line">		<span class="comment"># 列表框</span></span><br><span class="line">		[sg.Listbox(values=(<span class="string">&#x27;Listbox 1&#x27;</span>, <span class="string">&#x27;Listbox 2&#x27;</span>, <span class="string">&#x27;Listbox 3&#x27;</span>), size=(<span class="number">30</span>, <span class="number">3</span>))],</span><br><span class="line">		<span class="comment"># 整列</span></span><br><span class="line">		[sg.Column(column1, background_color=<span class="string">&#x27;#FF3E96&#x27;</span>)],</span><br><span class="line">		<span class="comment"># 横线</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;_&#x27;</span>  * <span class="number">80</span>)],</span><br><span class="line">		<span class="comment"># 文本</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;Choose A Folder&#x27;</span>, size=(<span class="number">35</span>, <span class="number">1</span>))],</span><br><span class="line">		<span class="comment"># 文件浏览器</span></span><br><span class="line">		[sg.Text(<span class="string">&#x27;Your Folder&#x27;</span>, size=(<span class="number">15</span>, <span class="number">1</span>), auto_size_text=<span class="literal">False</span>, justification=<span class="string">&#x27;right&#x27;</span>),</span><br><span class="line">		 sg.InputText(<span class="string">&#x27;Default Folder&#x27;</span>), sg.FolderBrowse()],</span><br><span class="line">	</span><br><span class="line">		[sg.Submit(), sg.Cancel()],</span><br><span class="line">	</span><br><span class="line">		[sg.Button(<span class="string">&#x27;ok&#x27;</span>), sg.Button(<span class="string">&#x27;cancel&#x27;</span>)],</span><br><span class="line">	</span><br><span class="line">	]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment"># Create the Window=================================2</span></span><br><span class="line">	window = sg.Window(<span class="string">&#x27;window titel&#x27;</span>, layout=layout, default_element_size=(<span class="number">40</span>,<span class="number">1</span>))</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># Event Loop to process &quot;events&quot; and get the &quot;values&quot; of the inputs</span></span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		event, values = window.read()  <span class="comment"># ====================3</span></span><br><span class="line">		<span class="comment"># if user closes window or clicks cancel</span></span><br><span class="line">		<span class="keyword">if</span> event <span class="keyword">in</span> (<span class="literal">None</span>, <span class="string">&#x27;cancel&#x27;</span>):</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="comment"># 打印</span></span><br><span class="line">		<span class="comment">#</span></span><br><span class="line">		<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">		event---按钮事件，ok </span></span><br><span class="line"><span class="string">		values 是字典，所有可输入的值</span></span><br><span class="line"><span class="string">		&#123;</span></span><br><span class="line"><span class="string">			0: &#x27;This is my text&#x27;, </span></span><br><span class="line"><span class="string">			1: False, </span></span><br><span class="line"><span class="string">			2: True, </span></span><br><span class="line"><span class="string">			3: True, </span></span><br><span class="line"><span class="string">			4: False, </span></span><br><span class="line"><span class="string">			5: &#x27;This is the dything\n&#x27;, </span></span><br><span class="line"><span class="string">			6: &#x27;A second multi-line\n&#x27;, </span></span><br><span class="line"><span class="string">			7: &#x27;Combobox 1&#x27;, </span></span><br><span class="line"><span class="string">			8: 85.0, </span></span><br><span class="line"><span class="string">			9: 25.0, </span></span><br><span class="line"><span class="string">			10: 75.0, </span></span><br><span class="line"><span class="string">			11: 10.0, </span></span><br><span class="line"><span class="string">			12: [], </span></span><br><span class="line"><span class="string">			13: &#x27;Spin Box 1&#x27;, </span></span><br><span class="line"><span class="string">			14: &#x27;Spin Box 2&#x27;, </span></span><br><span class="line"><span class="string">			15: &#x27;Spin Box 3&#x27;, </span></span><br><span class="line"><span class="string">			16: &#x27;Default Folder&#x27;, &#x27;Browse&#x27;: &#x27;&#x27;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		&#x27;&#x27;&#x27;</span></span><br><span class="line">		<span class="built_in">print</span>(event, values)</span><br><span class="line">	</span><br><span class="line">		<span class="comment"># 弹窗提示</span></span><br><span class="line">		sg.Popup(event, values)</span><br><span class="line">	</span><br><span class="line">	window.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	<span class="comment"># test_1()</span></span><br><span class="line">	<span class="comment"># test_2()</span></span><br><span class="line">	<span class="comment"># test_3()</span></span><br><span class="line">	test_4()</span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2022/04/15/%E7%A5%9E%E5%99%A8%20PySimpleGUI/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2022/04/15/%E7%A5%9E%E5%99%A8%20PySimpleGUI/";
+            const title         = "「神器 PySimpleGUI」";
+            const excerpt       = `PySimpleGUI 什么时候有用呢？显然，是你需要 GUI 的时候。仅需不超过 5 分钟，就可以让你创建并尝试 GUI。最便捷的 GUI 创建方式就是从 PySimpleGUI 经典实例中拷贝一份代码&#x3D;&#x3D;&#x...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/GUI/" rel="tag">GUI</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2022-04-15</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 用 Python 编写网页病毒，慎用" href="/2022/04/12/大总结！Python进度条的那些事/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 正则表达式30分钟入门教程" href="/2022/05/19/正则表达式30分钟入门教程/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                6
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/UI%E8%87%AA%E5%8A%A8%E5%8C%96/">UI自动化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/GUI/" style="font-size: 0.6em;">GUI</a> <a href="/tags/faker/" style="font-size: 0.6em;">faker</a> <a href="/tags/github-io/" style="font-size: 0.6em;">github.io</a> <a href="/tags/other/" style="font-size: 0.6em;">other</a> <a href="/tags/selenium/" style="font-size: 0.6em;">selenium</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 0.6em;">正则表达式</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2022/05/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F30%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"><i class="fa  fa-book"></i> 正则表达式30分钟入门教程</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/04/15/%E7%A5%9E%E5%99%A8%20PySimpleGUI/"><i class="fa  fa-book"></i> 神器 PySimpleGUI</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/04/12/%E5%A4%A7%E6%80%BB%E7%BB%93%EF%BC%81Python%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"><i class="fa  fa-book"></i> 用 Python 编写网页病毒，慎用</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/04/12/Python%E4%B8%AD%E7%A5%9E%E5%A5%87%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%9AFaker/"><i class="fa  fa-book"></i> Python中神奇的第三方库：Faker</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/04/06/Selenium%20WebDriver%20%E5%90%84%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A9%B1%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/"><i class="fa  fa-book"></i> Selenium WebDriver 各浏览器驱动下载地址</a>
+            
+          
+        
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Candinya"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Candinya"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2022 Mark个人博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by Mark.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://unpkg.com/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
